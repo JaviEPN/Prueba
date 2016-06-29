@@ -1,219 +1,218 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8" /> 
-  <head>
+<meta charset="utf-8" />
+
+<head>
     <title>Menu</title>
-  </head>
-  <style>
-	
-	
+</head>
+<style>
     .hidden {
-	   -webkit-transition: opacity 1s;
-	   z-index: 0;
-	   opacity: 0;
+        -webkit-transition: opacity 1s;
+        z-index: 0;
+        opacity: 0;
     }
-
+    
     .visible {
-	  -webkit-transition: opacity 1s;
-	  z-index: 1;
-	  opacity: 1;
+        -webkit-transition: opacity 1s;
+        z-index: 1;
+        opacity: 1;
     }
-
+    
     .frame {
-      position: absolute;
-	  width: 600px;
-	  height: 500px;
-	  font-family: "Verdana";
+        position: absolute;
+        width: 600px;
+        height: 500px;
+        font-family: "Verdana";
     }
-	.frame button {
-		-webkit-transition: border-radius 1s, text-shadow 1s, color 1s, text-size 1s;
-		font-family: "sans serif";
-		font-size: 30px;
-		color: black;
-		
-		margin: 10px;
-		padding: 10px;
-		width: 300px;
-		
-		background: none;
-		text-shadow: 0px 0px 8px white;
-		
-		border: 1px solid #dedede;
-		border-radius: 3px;
-		display: inline-block;
-		text-decoration: none;
-		border-color: #ffffff #ffffff #ffffff;
-		
-		box-shadow: 0px 3px 5px rgba(255,255,255,0.5);
-	}
-	
-	.frame button:hover {
-		border-radius: 20px;
-		text-shadow: 0px 0px 50px white;
-		color: white;
-		 width: 350px;
-		 font-size: 50px;
-         
-	}
-	
-	.frame button:active {
-		text-shadow: 0px 0px 20px black;
-	}
-	
-	body {
-		margin: 0 auto;
-		width: 600px;
-		height: 500px;
-		text-align: center;
-		background-image: url('menu.png');
-	}
-	#main {
-	margin-top: 200px;
-	}
-	#main h1 {
-	font-size: 50px;
-	}
-	p {
-	font-size: 20px;
-	margin-bottom: 5px;
-	padding: 5px;
-	text-align: left
-	}
-	#about h2 {
-	text-align: left
-	}
-	#highscores p {
-	text-align: left
-	}
-	#highscores h2 {
-	text-align: left
-	}
-	#highscores {
-	margin-top: 200px;
-	}
-	#about {
-	margin-top: 100px;
-	}
-	.zoomIt{
-	display:block!important;
-	-webkit-transition:-webkit-transform 1s ease-out;
-	-moz-transition:-moz-transform 1s ease-out;
-	-o-transition:-o-transform 1s ease-out;
-	-ms-transition:-ms-transform 1s ease-out;
-	transition:transform 1s ease-out;
-	}
-	.zoomIt:hover{
-	-moz-transform: scale(1.1);
-	-webkit-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1)
-	}
-  </style>
-  <script>
-  
-    function Game(gameDiv)
-    {
-      var frames = [];
-      var framesNames = [];
+    
+    .frame button {
+        -webkit-transition: border-radius 1s, text-shadow 1s, color 1s, text-size 1s;
+        font-family: "sans serif";
+        font-size: 30px;
+        color: black;
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+        background: none;
+        text-shadow: 0px 0px 8px white;
+        border: 1px solid #dedede;
+        border-radius: 3px;
+        display: inline-block;
+        text-decoration: none;
+        border-color: #ffffff #ffffff #ffffff;
+        box-shadow: 0px 3px 5px rgba(255, 255, 255, 0.5);
+    }
+    
+    .frame button:hover {
+        border-radius: 20px;
+        text-shadow: 0px 0px 50px white;
+        color: white;
+        width: 350px;
+        font-size: 50px;
+    }
+    
+    .frame button:active {
+        text-shadow: 0px 0px 20px black;
+    }
+    
+    body {
+        margin: 0 auto;
+        width: 600px;
+        height: 500px;
+        text-align: center;
+        background-image: url('menu.png');
+    }
+    
+    #main {
+        margin-top: 200px;
+    }
+    
+    #main h1 {
+        font-size: 50px;
+    }
+    
+    p {
+        font-size: 20px;
+        margin-bottom: 5px;
+        padding: 5px;
+        text-align: left
+    }
+    
+    #about h2 {
+        text-align: left
+    }
+    
+    #highscores p {
+        text-align: left
+    }
+    
+    #highscores h2 {
+        text-align: left
+    }
+    
+    #highscores {
+        margin-top: 200px;
+    }
+    
+    #about {
+        margin-top: 100px;
+    }
+    
+    .zoomIt {
+        display: block!important;
+        -webkit-transition: -webkit-transform 1s ease-out;
+        -moz-transition: -moz-transform 1s ease-out;
+        -o-transition: -o-transform 1s ease-out;
+        -ms-transition: -ms-transform 1s ease-out;
+        transition: transform 1s ease-out;
+    }
+    
+    .zoomIt:hover {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1)
+    }
+</style>
+<script>
+    function Game(gameDiv) {
+        var frames = [];
+        var framesNames = [];
 
-      for (var i=0; i<gameDiv.childNodes.length; i++)
-      {
-        var id = gameDiv.childNodes[i].id;
-        if (id != undefined)
-        {
-          var child = gameDiv.childNodes[i];
-          if (child.classList.contains("frame"))
-          {
-            frames[id] = child;
-            framesNames.push(id);
-          }
+        for (var i = 0; i < gameDiv.childNodes.length; i++) {
+            var id = gameDiv.childNodes[i].id;
+            if (id != undefined) {
+                var child = gameDiv.childNodes[i];
+                if (child.classList.contains("frame")) {
+                    frames[id] = child;
+                    framesNames.push(id);
+                }
+            }
         }
-      }
 
-      function setFrameVisible(name)
-      {
-        frames[name].classList.remove("hidden");
-        frames[name].classList.add("visible");
-      }
+        function setFrameVisible(name) {
+            frames[name].classList.remove("hidden");
+            frames[name].classList.add("visible");
+        }
 
-      function setFrameHidden(name)
-      {
-        frames[name].classList.remove("visible");
-        frames[name].classList.add("hidden");
-      }
+        function setFrameHidden(name) {
+            frames[name].classList.remove("visible");
+            frames[name].classList.add("hidden");
+        }
 
-      return {
-        "setFrameVisible": setFrameVisible,
-        "setFrameHidden": setFrameHidden
-      };
+        return {
+            "setFrameVisible": setFrameVisible
+            , "setFrameHidden": setFrameHidden
+        };
     }
 
-    window.addEventListener("load", function ()
-    {
-      game = new Game(document.getElementById("game"));
+    window.addEventListener("load", function () {
+        game = new Game(document.getElementById("game"));
     });
 
     var game;
+</script>
 
-  </script>
-  <body>
+<body>
     <div id="game">
-      <div id="main" class="frame visible">
-        <h1>
+        <div id="main" class="frame visible">
+            <h1>
           ReGreView
         </h1>
-		<img src="Semaforo-daltonicos.gif" height='200' width='300' />
-        <button onclick="location.href='ReGreView.html'; game.setFrameHidden('main');">
-          Jugar
-        </button>
-        <button onclick="game.setFrameVisible('highscores');game.setFrameHidden('main');">
-          Instrucciones
-        </button>
-        <button onclick="game.setFrameVisible('about');game.setFrameHidden('main');">
-          Créditos
-        </button>
-      </div>
-      <div id="canvas" class="frame hidden">
-	  
-        <button onclick="game.setFrameVisible('main');game.setFrameHidden('canvas');">
-          Volver al men&uacute;
-        </button>
-      </div>
-      <div id="highscores" class="frame hidden">
-        <h1>
+            <img src="Semaforo-daltonicos.gif" height='200' width='300' />
+            <button onclick="location.href='ReGreView.html'; game.setFrameHidden('main');">
+                Jugar
+            </button>
+            <button onclick="game.setFrameVisible('highscores');game.setFrameHidden('main');">
+                Instrucciones
+            </button>
+            <button onclick="game.setFrameVisible('about');game.setFrameHidden('main');">
+                Créditos
+            </button>
+        </div>
+        <div id="canvas" class="frame hidden">
+
+            <button onclick="game.setFrameVisible('main');game.setFrameHidden('canvas');">
+                Volver al men&uacute;
+            </button>
+        </div>
+        <div id="highscores" class="frame hidden">
+            <h1>
         Juego
         </h1>
-		<h2>Instrucciones</h2>
-		<p>1.- Un jugador marca con el color rojo ,y figura triangulo, y el otro jugador marca con el color azul y figura cuadrado. </p>
-		<p>2.- Seleccione la casilla en la que quiera poner su color y figura haciendo clic en ella. </p> 
-		<p>3.- No se puede marcar una casilla que ya está ocupada. </p> 
-		<p>4.- El primer jugador que consigue tres plazas en una fila gana, ya sea diagonal, vertical y horizontal.</p>
-        <button onclick="game.setFrameVisible('main');game.setFrameHidden('highscores');">
-          Volver al men&uacute;
-        </button>
-      </div>
-      <div id="about" class="frame hidden">
-		<h1>Tecnologias web con Javascript</h1>
-		<img src="logocre.png" height='100' width='300' />
-        <h2>
+            <h2>Instrucciones</h2>
+            <p>1.- Un jugador marca con el color rojo ,y figura triangulo, y el otro jugador marca con el color azul y figura cuadrado. </p>
+            <p>2.- Seleccione la casilla en la que quiera poner su color y figura haciendo clic en ella. </p>
+            <p>3.- No se puede marcar una casilla que ya está ocupada. </p>
+            <p>4.- El primer jugador que consigue tres plazas en una fila gana, ya sea diagonal, vertical y horizontal.</p>
+            <p>4.- El primer jugador que consigue tres plazas en una fila gana, ya sea diagonal, vertical y horizontal.</p>
+            <button onclick="game.setFrameVisible('main');game.setFrameHidden('highscores');">
+                Volver al men&uacute;
+            </button>
+        </div>
+        <div id="about" class="frame hidden">
+            <h1>Tecnologias web con Javascript</h1>
+            <img src="logocre.png" height='100' width='300' />
+            <h2>
           Integrantes: 
         </h2>
-		<p>Pinaida Alex</p>
-		<p>Ortiz Leonardo</p>
-		<p>Farinango Alex</p>
-		<p>Quinchiguango Jonathan</p>
-		<h2>
+            <p>Pinaida Alex</p>
+            <p>Ortiz Leonardo</p>
+            <p>Farinango Alex</p>
+            <p>Quinchiguango Jonathan</p>
+            <h2>
           Contactos:		  
         </h2>
-		<p><a class='zoomIt' href='http://google.com'>Leonardo Ortiz</a></p>
-		<p><a class='zoomIt' href='http://google.com'>Alex Pinaida</a></p>
-		<p><a class='zoomIt' href='http://google.com'>Alex Farinango</a></p>
-		<p><a class='zoomIt' href='http://google.com'>Jonathan Quinchinguango</a></p>
-        <button onclick="game.setFrameVisible('main');game.setFrameHidden('about');">
-          Volver al men&uacute;
-        </button>
-      </div>
+            <p><a class='zoomIt' href='http://google.com'>Leonardo Ortiz</a></p>
+            <p><a class='zoomIt' href='http://google.com'>Alex Pinaida</a></p>
+            <p><a class='zoomIt' href='http://google.com'>Alex Farinango</a></p>
+            <p><a class='zoomIt' href='http://google.com'>Jonathan Quinchinguango</a></p>
+            <button onclick="game.setFrameVisible('main');game.setFrameHidden('about');">
+                Volver al men&uacute;
+            </button>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
